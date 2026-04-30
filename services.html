@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Clearpath Site Consulting</title>
+  <meta name="description" content="Five phases covering the full pre-construction process — project assessment, design coordination, trade solicitation, bid packaging, and contractor approval. Any project, any scale, any trade.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <style>
+    /* ── FAQ accordion ─────────────────────────────────── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+      cursor: pointer;
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--t1);
+      list-style: none;
+      user-select: none;
+      transition: color 200ms;
+    }
+    .faq-question:hover { color: var(--orange); }
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--border-hi);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--orange);
+      transition: transform 300ms, background 200ms;
+      font-style: normal;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--orange-lt);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 20px 0;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--t2);
+      line-height: 1.8;
+      max-width: 760px;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── Deliverable card ─────────────────────────────── */
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .deliverable-card {
+      background: var(--bg-card);
+      padding: 32px 28px;
+      transition: background 200ms;
+    }
+    .deliverable-card:hover { background: var(--bg-card-2); }
+    .deliverable-icon {
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .deliverable-title {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 10px;
+    }
+    .deliverable-body {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--t2);
+      line-height: 1.65;
+    }
+
+    /* ── Timeline visual ──────────────────────────────── */
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      background: var(--border);
+      margin-top: 48px;
+    }
+    .timeline-cell {
+      background: var(--bg-3);
+      padding: 24px 20px;
+    }
+    .timeline-phase {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .timeline-name {
+      font-family: var(--font-d);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .timeline-duration {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--t1);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .timeline-duration-note {
+      font-size: 11px;
+      color: var(--t3);
+    }
+    .timeline-bar {
+      height: 4px;
+      background: var(--border-hi);
+      margin-top: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-bar-fill {
+      height: 100%;
+      background: var(--orange);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .deliverable-grid { grid-template-columns: 1fr; }
+      .timeline-track { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .timeline-track { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:8170000000" class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 1.5A1 1 0 001.5 2.5C1.5 7 5 10.5 9.5 10.5a1 1 0 001-1V8l-2-.5-.5 1a6 6 0 01-3-3l1-.5L6 3l-2-.5z" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        (817) 000-0000
+      </a>
+      <a href="mailto:estimating@clearpathsite.com" class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5l5 3.5 5-3.5" stroke="currentColor" stroke-width="1"/></svg>
+        estimating@clearpathsite.com
+      </a>
+      <span class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2" stroke="currentColor" stroke-width="1"/><path d="M6 1C3.8 1 2 2.8 2 5c0 3 4 7 4 7s4-4 4-7c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1"/></svg>
+        Fort Worth, TX
+      </span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-assoc">
+        <span>TEXO Member</span>
+        <span>AGC of Texas</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 34 34" fill="none">
+        <rect x="1.5" y="1.5" width="31" height="31" stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="17" y1="1.5"  x2="17" y2="10"   stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="17" y1="24"   x2="17" y2="32.5"  stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="1.5" y1="17"  x2="10"  y2="17"   stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="24"  y1="17"  x2="32.5" y2="17"  stroke="#e07c38" stroke-width="1.5"/>
+        <circle cx="17" cy="17" r="5" stroke="#e07c38" stroke-width="1.5"/>
+      </svg>
+      <div>
+        <div class="nav-logo-name">Clearpath</div>
+        <div class="nav-logo-sub">Site Consulting</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./services.html" class="active">Services</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./contact.html" class="btn-nav">Start a Project</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="./services.html">Services</a>
+  <a href="./about.html">About</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./contact.html" class="cta-drawer">Start a Project →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="./">Home</a><span>›</span><span>Services</span></div>
+    <h1 class="page-hero-title">The Process</h1>
+    <p class="page-hero-body">
+      Five phases. Every engagement follows the same structured approach — scaled to what the
+      project actually requires. A tenant improvement and a mixed-use development are different
+      in scale, but the process that produces a sound, contractor-committed package is the same.
+    </p>
+  </div>
+</div>
+
+<!-- JUMP NAV -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#assessment">01 &nbsp;Assessment</a>
+    <a href="#design">02 &nbsp;Design &amp; Docs</a>
+    <a href="#solicitation">03 &nbsp;Solicitation</a>
+    <a href="#packaging">04 &nbsp;Bid Packaging</a>
+    <a href="#handoff">05 &nbsp;Handoff</a>
+    <a href="#deliverable">What You Receive</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</div>
+
+<!-- PHASE DETAIL -->
+<div class="services-detail-wrap">
+  <div class="services-detail-inner">
+
+    <!-- 01 ─────────────────────────────────────────────── -->
+    <div class="service-detail-item reveal" id="assessment">
+      <div>
+        <div class="sdl-num">01</div>
+        <div class="sdl-tag">Every Engagement Starts Here</div>
+      </div>
+      <div>
+        <h2 class="sdr-title">Project Assessment</h2>
+        <p class="sdr-body">
+          Before we produce a single document or make a single call, we need a complete
+          picture of what you're trying to build and what it will take to get there.
+          That sounds straightforward — and it is, when it's done right. The problem is
+          that most owners have never been through a formal pre-construction process,
+          and don't always know which questions to answer or which details matter.
+          Our assessment is designed to find all of it.
+        </p>
+        <p class="sdr-body">
+          We'll walk through the site conditions, any existing documentation or design work,
+          budget expectations, regulatory factors that will shape the design, the construction
+          timeline, and anything else that will affect what the project requires and how
+          it should be sequenced. At the end of this phase, we produce a written project
+          brief that becomes the foundational document for everything that follows.
+          Nothing moves forward until we've agreed on what we're building.
+        </p>
+        <p class="sdr-body">
+          Getting assessment right is also how we protect you from scope creep. A project
+          that's correctly defined at the start doesn't come back three months later with
+          surprise requirements that weren't anticipated. That's a preventable problem,
+          and this is where it gets prevented.
+        </p>
+        <div class="includes-label">What Happens in This Phase</div>
+        <ul class="includes-list">
+          <li>Owner brief — documented scope, objectives, constraints, and success criteria</li>
+          <li>Site review — conditions, access, topography, utilities, and existing infrastructure</li>
+          <li>Regulatory scan — zoning, permitting requirements, building codes, and environmental considerations</li>
+          <li>Budget parameters — what the project needs to come in at, and whether that's realistic</li>
+          <li>Trade identification — every discipline the project requires, from design through construction</li>
+          <li>Phasing plan — how the project sequences and what dependencies exist between trades</li>
+          <li>Written assessment summary — delivered and signed off before Phase 2 begins</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 02 ─────────────────────────────────────────────── -->
+    <div class="service-detail-item reveal" id="design">
+      <div>
+        <div class="sdl-num">02</div>
+        <div class="sdl-tag">Scaled to the Project</div>
+      </div>
+      <div>
+        <h2 class="sdr-title">Design &amp; Documentation</h2>
+        <p class="sdr-body">
+          Every project needs documentation before a contractor can price it accurately.
+          What that documentation looks like depends entirely on the project. Large commercial
+          construction requires stamped architectural drawings, structural engineering,
+          civil plans, MEP design, and detailed specifications. A parking lot rehabilitation
+          requires a scope of work, site measurements, material specifications, and a defined
+          bid form. We produce exactly what the project requires — using the appropriate
+          professionals for the work at hand.
+        </p>
+        <p class="sdr-body">
+          When a project calls for licensed architects or engineers, we bring them in through
+          our established network of design professionals across DFW and North Texas. We have
+          working relationships with architects, civil engineers, structural engineers, MEP
+          engineers, land surveyors, geotechnical consultants, and specialty designers.
+          We coordinate and manage their work, maintain the schedule, and ensure that
+          every document produced is in the format contractors need to submit an accurate bid.
+        </p>
+        <p class="sdr-body">
+          This is also where we catch problems before they become expensive. Incomplete
+          or inconsistent design documents are one of the most common reasons bid prices
+          vary wildly, contractors submit exclusions, and change orders multiply during
+          construction. A complete document set, reviewed for coordination issues before
+          it goes to bid, dramatically reduces all of those outcomes.
+        </p>
+        <div class="includes-label">What This Phase Can Include</div>
+        <ul class="includes-list">
+          <li>Architectural design coordination — schematic design through full construction documents as required</li>
+          <li>Structural, civil, and MEP engineering coordination for projects that require it</li>
+          <li>Geotechnical and environmental study coordination where site conditions warrant</li>
+          <li>Site plans, grading plans, utility layouts, drainage design</li>
+          <li>Scope of work documents and technical specifications for trade contractors</li>
+          <li>Permitting applications — preparation and submission to relevant jurisdictions</li>
+          <li>Document coordination review — verifying all disciplines are consistent before bid release</li>
+          <li>Bid document package assembly — all documents organized for contractor distribution</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 03 ─────────────────────────────────────────────── -->
+    <div class="service-detail-item reveal" id="solicitation">
+      <div>
+        <div class="sdl-num">03</div>
+        <div class="sdl-tag">Every Trade. Real Responses.</div>
+      </div>
+      <div>
+        <h2 class="sdr-title">Trade Solicitation</h2>
+        <p class="sdr-body">
+          Once documentation is complete, we go to market — across every trade the project
+          requires, simultaneously. General contractors, civil, structural, MEP, specialty
+          subcontractors, suppliers where applicable — whoever the project needs. We don't
+          manage one trade at a time or run sequential bid processes. Every discipline
+          goes out on a common timeline so all responses come back in an organized window
+          that allows for proper comparison.
+        </p>
+        <p class="sdr-body">
+          Our approach to solicitation is direct and personal. We don't post to bid platforms
+          and wait. We contact contractors we know, follow up by phone, and maintain those
+          relationships project after project. That is what gets you four real bids instead
+          of one, and what gets you responses from contractors who actually read the documents
+          and price the full scope — not just the parts they felt like pricing.
+        </p>
+        <p class="sdr-body">
+          We also manage all bidder communication during the solicitation period. Questions
+          from any contractor are logged, answered, and issued as addenda to all bidders
+          simultaneously. That keeps the process clean and prevents the informal "side
+          conversations" that introduce scope inconsistencies into bid results.
+        </p>
+        <div class="includes-label">What Happens in This Phase</div>
+        <ul class="includes-list">
+          <li>Contractor identification — qualified, licensed, insured contractors in every required trade</li>
+          <li>Direct outreach — phone and email contact, not platform postings</li>
+          <li>Complete document package delivery to every bidder simultaneously</li>
+          <li>Pre-bid meeting coordination where project complexity warrants one</li>
+          <li>Bidder Q&amp;A management — questions fielded, addenda issued to all parties</li>
+          <li>Active follow-up through the bid deadline — we chase responses</li>
+          <li>Bid receipt and logging — all responses timestamped and organized for packaging</li>
+          <li>Non-response documentation — who declined to bid and why</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 04 ─────────────────────────────────────────────── -->
+    <div class="service-detail-item reveal" id="packaging">
+      <div>
+        <div class="sdl-num">04</div>
+        <div class="sdl-tag">Options You Can Choose Between</div>
+      </div>
+      <div>
+        <h2 class="sdr-title">Bid Organization &amp; Packaging</h2>
+        <p class="sdr-body">
+          Raw bids are data. What owners need is options — organized, comparable, and complete
+          enough to support a real decision. This is the phase that separates a managed
+          pre-construction process from an unmanaged one. We take every response across every
+          trade and organize them into a small set of complete package options, typically
+          structured as value, performance, and premium, so you're choosing between
+          defined outcomes with all-in pricing — not trying to mix and match
+          incompatible proposals.
+        </p>
+        <p class="sdr-body">
+          Building each package requires judgment, not just spreadsheets. The value package
+          isn't just "lowest price across every trade." It's the combination of contractors
+          that produces the best overall project outcome at the most competitive total cost —
+          which sometimes means paying more for one trade because a cheaper option for that
+          trade would create risk or coordination problems elsewhere. We make those
+          determinations with full context from the assessment and design phases,
+          and we document our reasoning so you understand every choice.
+        </p>
+        <p class="sdr-body">
+          Every package also goes through a scope reconciliation process before it's presented.
+          Exclusions are identified and addressed. Scope gaps are quantified and added back
+          into the pricing. Inconsistencies between bids are flagged and resolved.
+          What you receive is packages where every number is apples-to-apples —
+          not apparent packages where one number looks lower because something is missing.
+        </p>
+        <div class="includes-label">What's In Each Delivered Package</div>
+        <ul class="includes-list">
+          <li>Complete contractor roster — every required trade, with contractor profile for each selection</li>
+          <li>All-in pricing summary — fully loaded, no hidden exclusions or scope gaps</li>
+          <li>Scope reconciliation log — every discrepancy identified and resolved with supporting rationale</li>
+          <li>Contractor profiles — licensing, insurance status, bonding capacity, and relevant project history</li>
+          <li>Project timeline projection — realistic schedule from award through completion, per package</li>
+          <li>Risk summary — any notable risks or considerations specific to each package combination</li>
+          <li>Written analysis and recommendation — our assessment of each option with supporting reasoning</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 05 ─────────────────────────────────────────────── -->
+    <div class="service-detail-item reveal" id="handoff">
+      <div>
+        <div class="sdl-num">05</div>
+        <div class="sdl-tag">Shovel-Ready at Delivery</div>
+      </div>
+      <div>
+        <h2 class="sdr-title">Approval &amp; Handoff</h2>
+        <p class="sdr-body">
+          Once you select a package, the pre-construction process isn't over — it's entered
+          its most consequential stage. Getting from an approved package to a project with
+          signed contracts, confirmed permits, and committed mobilization dates requires
+          careful coordination across every party involved. This is where pre-construction
+          processes that aren't actively managed fall apart, and where the most expensive
+          delays get introduced.
+        </p>
+        <p class="sdr-body">
+          We manage every step of the approval and commitment process. Selected contractors
+          are notified and contract execution begins. Outstanding permits are tracked through
+          to issuance. Pre-construction schedules are established with every trade to confirm
+          mobilization dates, sequencing, and any lead time requirements for materials or
+          equipment. Non-selected contractors are formally notified.
+        </p>
+        <p class="sdr-body">
+          The handoff itself is a structured event. We don't email you a folder of documents
+          and call it done. We walk through the complete project package with you — every
+          contract, every permit, every pre-construction schedule — so that nothing is
+          ambiguous when construction begins. By the time the project is in your hands,
+          it is genuinely ready to execute.
+        </p>
+        <div class="includes-label">What Happens Before Handoff</div>
+        <ul class="includes-list">
+          <li>Contractor selection notifications — selected parties confirmed, non-selected formally notified</li>
+          <li>Contract execution management — we manage the process of getting every agreement fully executed</li>
+          <li>Insurance and bonding verification — certificates confirmed current before contracts are signed</li>
+          <li>Permit finalization — all outstanding applications tracked to issuance</li>
+          <li>Pre-construction schedule — confirmed mobilization dates and sequencing across all trades</li>
+          <li>Material and equipment lead time review — any long-lead items identified and ordered</li>
+          <li>Complete project package assembly — all documents organized in a single, structured handoff binder</li>
+          <li>Owner orientation — we review every element of the package with you before closing out</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT YOU RECEIVE -->
+<section style="background: var(--bg-2); padding: 80px 40px;" id="deliverable">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">The Deliverable</div>
+      <h2 class="section-title reveal reveal-delay-1">What you receive at handoff.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        The Clearpath handoff package is a single, organized document set. Every item
+        you need to break ground is in it. Nothing requires follow-up.
+      </p>
+    </div>
+
+    <div class="deliverable-grid reveal reveal-delay-2">
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="3" width="16" height="22" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="9"  x2="16" y2="9"  stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="17" x2="13" y2="17" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="16" width="12" height="13" rx="1" fill="var(--bg-3)" stroke="currentColor" stroke-width="1.5"/><path d="M20 22l2 2 4-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="deliverable-title">Executed Contracts</div>
+        <div class="deliverable-body">
+          Fully signed agreements with every contractor across every trade in the selected package.
+          No verbal commitments, no letters of intent — executed contracts ready for construction to begin.
+        </div>
+      </div>
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="4" width="26" height="24" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="11" x2="29" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="4" x2="10" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="22" y1="4" x2="22" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="18" x2="14" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="22" x2="16" y2="22" stroke="currentColor" stroke-width="1.5"/><line x1="19" y1="18" x2="24" y2="18" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="deliverable-title">Pre-Construction Schedule</div>
+        <div class="deliverable-body">
+          Confirmed mobilization dates, sequencing, and milestone schedule across all trades —
+          reviewed and agreed to by every contractor before handoff.
+        </div>
+      </div>
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="4"  y1="11" x2="28" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="13" y1="4"  x2="13" y2="11" stroke="currentColor" stroke-width="1.5"/><circle cx="19" cy="20" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M17 20l1.5 1.5 2.5-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="deliverable-title">Permits &amp; Approvals</div>
+        <div class="deliverable-body">
+          All required permits issued and included in the package. Any long-lead approvals
+          tracked to resolution before handoff — so there's nothing waiting on a jurisdiction
+          when contractors are ready to mobilize.
+        </div>
+      </div>
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="3" width="24" height="28" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="14" x2="23" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="18" x2="17" y2="18" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="22" x2="19" y2="22" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="deliverable-title">Complete Design Documents</div>
+        <div class="deliverable-body">
+          All architectural, engineering, and technical documents — organized, version-controlled,
+          and distributed to every relevant contractor. No one starts with an outdated drawing set.
+        </div>
+      </div>
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="8"  cy="16" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="8"  r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="14.5" x2="20" y2="9.5"  stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="17.5" x2="20" y2="22.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="deliverable-title">Contractor Package Summary</div>
+        <div class="deliverable-body">
+          Profile, contract summary, insurance certificates, licensing verification, and
+          contact information for every contractor in the package — organized by trade
+          in a single reference document.
+        </div>
+      </div>
+
+      <div class="deliverable-card">
+        <div class="deliverable-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="18" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M10 8V6a6 6 0 0112 0v2" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="17" r="2.5" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="19.5" x2="16" y2="22" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="deliverable-title">Package Analysis &amp; Recommendation</div>
+        <div class="deliverable-body">
+          Our written analysis of all package options — including the option you selected and
+          what was considered in building it — so you have a documented rationale for the
+          decisions made and can reference it throughout the project.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TYPICAL TIMELINE -->
+<section style="background: var(--bg); padding: 80px 40px;" id="timeline">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">Typical Timeline</div>
+      <h2 class="section-title reveal reveal-delay-1">How long does it take?</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Timeline varies significantly with project scale and complexity. The figures below
+        represent a typical mid-size commercial project. Smaller projects move faster;
+        large developments with complex design requirements take longer.
+        We establish a specific timeline during Phase 1 assessment.
+      </p>
+    </div>
+
+    <div class="timeline-track reveal reveal-delay-2">
+      <div class="timeline-cell">
+        <div class="timeline-phase">Phase 01</div>
+        <div class="timeline-name">Project Assessment</div>
+        <div class="timeline-duration">1–3</div>
+        <div class="timeline-duration-note">days</div>
+        <div class="timeline-bar"><div class="timeline-bar-fill" style="width:8%"></div></div>
+      </div>
+      <div class="timeline-cell">
+        <div class="timeline-phase">Phase 02</div>
+        <div class="timeline-name">Design &amp; Documentation</div>
+        <div class="timeline-duration">Varies</div>
+        <div class="timeline-duration-note">by project scale</div>
+        <div class="timeline-bar"><div class="timeline-bar-fill" style="width:40%"></div></div>
+      </div>
+      <div class="timeline-cell">
+        <div class="timeline-phase">Phase 03</div>
+        <div class="timeline-name">Trade Solicitation</div>
+        <div class="timeline-duration">2–4</div>
+        <div class="timeline-duration-note">weeks</div>
+        <div class="timeline-bar"><div class="timeline-bar-fill" style="width:25%"></div></div>
+      </div>
+      <div class="timeline-cell">
+        <div class="timeline-phase">Phase 04</div>
+        <div class="timeline-name">Bid Packaging</div>
+        <div class="timeline-duration">3–7</div>
+        <div class="timeline-duration-note">business days</div>
+        <div class="timeline-bar"><div class="timeline-bar-fill" style="width:15%"></div></div>
+      </div>
+      <div class="timeline-cell">
+        <div class="timeline-phase">Phase 05</div>
+        <div class="timeline-name">Approval &amp; Handoff</div>
+        <div class="timeline-duration">1–2</div>
+        <div class="timeline-duration-note">weeks</div>
+        <div class="timeline-bar"><div class="timeline-bar-fill" style="width:12%"></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 16px 20px; border-left: 3px solid var(--orange); background: var(--orange-lt); font-size: 13px; font-weight: 300; color: var(--t2); line-height: 1.65;" class="reveal reveal-delay-3">
+      The most variable phase is Design &amp; Documentation — a small renovation scope might require only a few days of document preparation, while a large commercial development with full architectural and engineering coordination can take several months. We establish the design timeline during Phase 1 based on what your specific project requires, and we monitor it actively throughout.
+    </div>
+  </div>
+</section>
+
+<!-- OUR NETWORK -->
+<section style="background: var(--bg-2); padding: 80px 40px;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">Our Network</div>
+      <h2 class="section-title reveal reveal-delay-1">The relationships that make it work.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Clearpath doesn't just manage a process — we bring a network of vetted professionals
+        that's been built project by project over years of active work in the DFW construction market.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);" class="reveal reveal-delay-2">
+      <div style="background:var(--bg-card);padding:36px 28px;border-top:3px solid var(--orange);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;">Design Professionals</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:16px;">Licensed architects, civil engineers, structural engineers, MEP engineers, land surveyors, geotechnical consultants, and specialty designers — brought in as the project scope requires. All are licensed in Texas, carry appropriate professional liability coverage, and have active project experience in the DFW market.</p>
+        <div style="font-size:12px;color:var(--t3);padding-top:12px;border-top:1px solid var(--border);">Selected for quality, communication, and consistent delivery. Not for lowest fee.</div>
+      </div>
+      <div style="background:var(--bg-card);padding:36px 28px;border-top:3px solid var(--border-hi);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;">General Contractors</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:16px;">Commercial GCs across DFW and North Texas — from regional firms with deep local roots to national contractors active in the Texas market. We maintain active relationships with GCs across a range of project types and scopes, so the contractor we bring to your project has relevant experience in your specific category of work.</p>
+        <div style="font-size:12px;color:var(--t3);padding-top:12px;border-top:1px solid var(--border);">Screened for licensing, bonding capacity, and project-type track record.</div>
+      </div>
+      <div style="background:var(--bg-card);padding:36px 28px;border-top:3px solid var(--border-hi);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;">Specialty Subcontractors</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:16px;">Concrete, pavement, framing, roofing, electrical, plumbing, HVAC, fire protection, site work, earthwork, and every other trade a project might require. For trades outside our standard network, we identify and vet new contractors as part of Phase 3 — every sub that bids a Clearpath project meets our baseline criteria before their bid is presented.</p>
+        <div style="font-size:12px;color:var(--t3);padding-top:12px;border-top:1px solid var(--border);">Vetted by trade, geography, current capacity, and project-type experience.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background: var(--bg); padding: 80px 40px;" id="faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">Common Questions</div>
+      <h2 class="section-title reveal reveal-delay-1">Frequently asked.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Questions we hear often. If yours isn't here, reach out directly.
+      </p>
+    </div>
+
+    <div style="max-width: 840px; margin-top: 48px;" class="reveal reveal-delay-2">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Do we need to have design documents or plans before contacting Clearpath?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          No. You don't need anything beyond a description of what you want to build.
+          If you already have design documents or architectural drawings from a previous
+          effort, we can absolutely work from those — but they're not a requirement.
+          Phase 1 assessment starts with whatever information you have, and Phase 2
+          produces whatever documentation your project still needs. Many of our clients
+          come to us with nothing more than a site and an idea.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How much does Clearpath charge?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We charge a flat fee that's confirmed before any engagement begins. The fee
+          varies based on project scale and complexity — what's required on a tenant
+          improvement is different from what's required on a ground-up commercial
+          development. We don't charge a percentage of the contract value, and our fee
+          doesn't change based on how many trades are involved or how many bids come back.
+          Contact us with your project details and we'll outline the process and fee
+          specific to your project before you commit to anything.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What types of projects do you handle?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Any project that has a pre-construction phase. Commercial construction, residential
+          development, mixed-use, industrial, retail, hospitality, renovation and rehabilitation,
+          site work and infrastructure. The process we run is the same regardless of project
+          type — what changes is the design disciplines and trade contractors involved.
+          If you're unsure whether your project fits, contact us and describe it.
+          We'll tell you directly whether it's a good fit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Can we engage Clearpath for only part of the process?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. The five phases are the complete engagement, but clients sometimes come
+          to us with design documents already complete and need only solicitation, packaging,
+          and handoff. Others have design and bids but need the bids organized into
+          comparable packages. We can enter the process at any phase and take it forward
+          from there. What we don't do is take partial ownership of a phase — if we're
+          running solicitation, we run all of it, not part of it.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Do you work outside the DFW area?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Our primary service area is the eight-county DFW Metroplex and immediate
+          surrounding region, where our contractor network is strongest and we can
+          respond most effectively. For larger projects — particularly those above
+          $5M in total construction value — we work statewide. Our design professional
+          relationships extend across Texas, and for larger scopes we can build out
+          an appropriate contractor network for the specific location. Contact us
+          with your project location and we'll confirm whether we can help.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do you handle it if contractors don't respond to the solicitation?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We follow up actively by phone throughout the solicitation period and document
+          every contact. If we're not getting adequate response in a trade, we identify
+          additional contractors and expand the solicitation before the bid deadline.
+          Our goal for every trade is a minimum of three qualified responses — and when
+          that's not achievable due to genuine market conditions, we tell you clearly,
+          explain why, and present what we have with full context. We don't dress up
+          an inadequate bid set as a competitive one.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Are the architects and engineers you use licensed in Texas?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. Every design professional we engage holds a current Texas license in
+          their discipline and carries appropriate professional liability insurance.
+          For projects requiring a Certificate of Occupancy or permit-ready drawings,
+          documents are sealed by the licensed professional of record as required
+          by the applicable jurisdiction. If a project has specific licensing requirements
+          we haven't encountered before, we identify that in Phase 1 and confirm our
+          network can address it before we proceed.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What information should we have ready before our first conversation?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          The more detail you can provide, the more useful the first conversation will be —
+          but you don't need to have everything organized. Helpful to have: a description
+          of what you want to build, the address or general location of the site, any
+          existing documents (surveys, prior plans, permits), your budget range, and
+          your desired timeline for construction to begin. If you have none of that,
+          a clear description of the project in plain language is enough to start.
+          We'll ask the questions we need from there.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-eyebrow">Ready to Start</div>
+      <div class="cta-title">Tell us about your project.<br>We'll take it from there.</div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <a href="./contact.html" class="btn-white">
+        Start a Project
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./about.html" class="btn-outline">About the Firm</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="./" class="footer-logo">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+            <rect x="1.5" y="1.5" width="31" height="31" stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="17" y1="1.5"  x2="17" y2="10"   stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="17" y1="24"   x2="17" y2="32.5"  stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="1.5" y1="17"  x2="10"  y2="17"  stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="24"  y1="17"  x2="32.5" y2="17" stroke="#e07c38" stroke-width="1.5"/>
+            <circle cx="17" cy="17" r="5" stroke="#e07c38" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <div class="footer-logo-name">Clearpath</div>
+            <div class="footer-logo-sub">Site Consulting</div>
+          </div>
+        </a>
+        <p class="footer-tagline">Pre-construction project delivery for owners, developers, and investors across North Texas.</p>
+        <div class="footer-assoc">
+          <span class="footer-assoc-badge">TEXO Member</span>
+          <span class="footer-assoc-badge">AGC of Texas</span>
+          <span class="footer-assoc-badge">Fort Worth, TX</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Process</div>
+        <a href="#assessment">Project Assessment</a>
+        <a href="#design">Design &amp; Documentation</a>
+        <a href="#solicitation">Trade Solicitation</a>
+        <a href="#packaging">Bid Packaging</a>
+        <a href="#handoff">Approval &amp; Handoff</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./contact.html">Start a Project</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <p>(817) 000-0000</p>
+        <p>estimating@clearpathsite.com</p>
+        <p>Fort Worth, TX</p>
+        <p>Mon–Fri · 7 AM–5 PM CT</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Clearpath Site Consulting. All rights reserved.</div>
+      <div>Clearpath Site Consulting is a registered trade name in the State of Texas.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="./js/main.js"></script>
+<script>
+  // FAQ accordion keyboard support
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.setAttribute('tabindex', '0');
+    q.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        q.parentElement.classList.toggle('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>

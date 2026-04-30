@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Clearpath Site Consulting</title>
+  <meta name="description" content="Clearpath is a pre-construction project delivery firm built around one premise: owners deserve a single accountable firm managing everything before the first shovel. No conflicts. No shortcuts. Complete delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <style>
+    .not-this-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .not-this-card {
+      background: var(--bg-card);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .not-this-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .not-this-label::before {
+      content: '✕';
+      font-size: 11px;
+    }
+    .not-this-title {
+      font-family: var(--font-d);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .not-this-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--t2);
+      line-height: 1.72;
+      margin-bottom: 16px;
+    }
+    .this-instead {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      line-height: 1.55;
+    }
+    .this-instead::before {
+      content: '→';
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .method-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 28px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .method-item:last-child { border-bottom: none; }
+    .method-num {
+      font-family: var(--font-d);
+      font-weight: 800;
+      font-size: 48px;
+      color: var(--bg-3);
+      line-height: 1;
+      transition: color 300ms;
+    }
+    .method-item:hover .method-num { color: var(--border-hi); }
+    .method-title {
+      font-family: var(--font-d);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .method-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--t2);
+      line-height: 1.75;
+    }
+
+    .principle-expanded {
+      border: 1px solid var(--border);
+      background: var(--bg-3);
+    }
+    .principle-exp-row {
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--border);
+      transition: background 200ms;
+    }
+    .principle-exp-row:last-child { border-bottom: none; }
+    .principle-exp-row:hover { background: var(--bg-card); }
+    .principle-exp-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+    .principle-exp-num {
+      width: 36px;
+      height: 36px;
+      background: var(--orange-lt);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+    .principle-exp-title {
+      font-family: var(--font-d);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--t1);
+      line-height: 1.2;
+      padding-top: 6px;
+    }
+    .principle-exp-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--t2);
+      line-height: 1.78;
+      padding-left: 56px;
+    }
+
+    @media (max-width: 768px) {
+      .not-this-grid { grid-template-columns: 1fr; }
+      .method-item { grid-template-columns: 1fr; gap: 10px; }
+      .method-num { font-size: 32px; }
+      .principle-exp-body { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="tel:8170000000" class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 1.5A1 1 0 001.5 2.5C1.5 7 5 10.5 9.5 10.5a1 1 0 001-1V8l-2-.5-.5 1a6 6 0 01-3-3l1-.5L6 3l-2-.5z" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        (817) 000-0000
+      </a>
+      <a href="mailto:estimating@clearpathsite.com" class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2.5" width="10" height="7" rx="1" stroke="currentColor" stroke-width="1"/><path d="M1 3.5l5 3.5 5-3.5" stroke="currentColor" stroke-width="1"/></svg>
+        estimating@clearpathsite.com
+      </a>
+      <span class="topbar-item">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2" stroke="currentColor" stroke-width="1"/><path d="M6 1C3.8 1 2 2.8 2 5c0 3 4 7 4 7s4-4 4-7c0-2.2-1.8-4-4-4z" stroke="currentColor" stroke-width="1"/></svg>
+        Fort Worth, TX
+      </span>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-assoc">
+        <span>TEXO Member</span>
+        <span>AGC of Texas</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="./" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 34 34" fill="none">
+        <rect x="1.5" y="1.5" width="31" height="31" stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="17" y1="1.5"  x2="17" y2="10"   stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="17" y1="24"   x2="17" y2="32.5"  stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="1.5" y1="17"  x2="10"  y2="17"   stroke="#e07c38" stroke-width="1.5"/>
+        <line x1="24"  y1="17"  x2="32.5" y2="17"  stroke="#e07c38" stroke-width="1.5"/>
+        <circle cx="17" cy="17" r="5" stroke="#e07c38" stroke-width="1.5"/>
+      </svg>
+      <div>
+        <div class="nav-logo-name">Clearpath</div>
+        <div class="nav-logo-sub">Site Consulting</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./services.html">Services</a>
+      <a href="./about.html" class="active">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./contact.html" class="btn-nav">Start a Project</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="./services.html">Services</a>
+  <a href="./about.html">About</a>
+  <a href="./contact.html">Contact</a>
+  <a href="./contact.html" class="cta-drawer">Start a Project →</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="./">Home</a><span>›</span><span>About</span></div>
+    <h1 class="page-hero-title">The Firm</h1>
+    <p class="page-hero-body">
+      Built on construction industry experience and a direct observation:
+      most owners navigate the most consequential phase of their project
+      without a single firm accountable for making it go right.
+    </p>
+  </div>
+</div>
+
+<!-- THE FIRM -->
+<section class="about-section">
+  <div class="section-inner">
+    <div class="about-layout">
+
+      <div>
+        <p class="about-statement reveal">
+          Pre-construction determines everything. <em>Most owners go through it alone.</em>
+        </p>
+
+        <p class="about-body reveal reveal-delay-1">
+          The decisions made before a permit is pulled — how the project is documented,
+          which contractors are approached, how bids are structured, what gets compared
+          against what — determine whether a project is built on budget, on schedule,
+          and without the surprises that erode returns and relationships. Pre-construction
+          is where projects are won or lost. It just doesn't look that way until construction
+          is already underway and problems are visible.
+        </p>
+
+        <p class="about-body reveal reveal-delay-1">
+          Most owners manage this phase without professional support. They rely on their
+          GC's sub list, take the architect's word on engineer coordination, and receive
+          bids in whatever format each contractor chose to submit. By the time packages
+          are being compared, the numbers can't be compared — different assumptions,
+          different scope inclusions, different formats, different exclusions buried in
+          attachments. The owner makes their decision anyway because the project needs
+          to move. The problems that decision creates show up six months later.
+        </p>
+
+        <p class="about-body reveal reveal-delay-2">
+          Clearpath exists because that's a solvable problem. A managed pre-construction
+          process — one where every design discipline is coordinated, every trade is
+          properly solicited, and every bid is organized into a comparable package
+          before the owner sees it — produces dramatically better outcomes. Better
+          pricing, fewer surprises, cleaner contracts, and a construction phase that
+          starts with a common understanding across every party involved.
+        </p>
+
+        <p class="about-body reveal reveal-delay-2">
+          We built this firm around the relationships and process required to deliver
+          that outcome for any owner, on any project, at any scale. The network of
+          architects, engineers, and contractors we work with was built deliberately
+          over years of active project work in the DFW market. Those relationships
+          are what make a managed process possible — and what allow us to consistently
+          get competitive responses from contractors who know our standards and
+          know what to expect when a Clearpath project comes across their desk.
+        </p>
+      </div>
+
+      <div class="about-visual">
+        <div class="about-stat-card reveal">
+          <div>
+            <div class="about-stat-label">Primary Service Area</div>
+            <div class="about-stat-val">DFW &amp; North Texas</div>
+            <div class="about-stat-note">8 primary counties · statewide for larger projects</div>
+          </div>
+          <div class="about-stat-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="3" x2="14" y2="6" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="22" x2="14" y2="25" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="14" x2="6" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="22" y1="14" x2="25" y2="14" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="14" r="3" fill="currentColor"/></svg>
+          </div>
+        </div>
+        <div class="about-stat-card reveal reveal-delay-1">
+          <div>
+            <div class="about-stat-label">Project Types</div>
+            <div class="about-stat-val">All Scales</div>
+            <div class="about-stat-note">Residential through large commercial and mixed-use development</div>
+          </div>
+          <div class="about-stat-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="14" width="9" height="11" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="8" width="9" height="17" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M3 11l4.5-5L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="about-stat-card reveal reveal-delay-2">
+          <div>
+            <div class="about-stat-label">Vendor Relationships</div>
+            <div class="about-stat-val">Zero Financial Ties</div>
+            <div class="about-stat-note">No referral fees, no preferred vendors, no commissions</div>
+          </div>
+          <div class="about-stat-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3L4 8v8c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V8L14 3z" stroke="currentColor" stroke-width="1.5"/><path d="M9 14l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="about-stat-card reveal reveal-delay-3">
+          <div>
+            <div class="about-stat-label">Network Built On</div>
+            <div class="about-stat-val">Relationships</div>
+            <div class="about-stat-note">Architects, engineers, GCs, and specialty contractors across DFW</div>
+          </div>
+          <div class="about-stat-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="7" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="21" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="21" cy="21" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="12.5" x2="18" y2="8.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="15.5" x2="18" y2="19.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section style="background: var(--bg-2); padding: 88px 40px;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">Our Approach</div>
+      <h2 class="section-title reveal reveal-delay-1">How we think about pre-construction.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        The Clearpath process isn't a checklist — it's a set of convictions about how
+        pre-construction should be run, built from direct experience with how it fails
+        when those convictions aren't applied.
+      </p>
+    </div>
+
+    <div style="max-width: 860px; margin-top: 56px;" class="reveal reveal-delay-2">
+
+      <div class="method-item">
+        <div class="method-num">01</div>
+        <div>
+          <div class="method-title">Assessment before anything</div>
+          <div class="method-body">
+            Every engagement starts with a full project assessment before a single document
+            is produced or a single contractor is contacted. This is not a formality — it's
+            the phase where every assumption gets tested, every constraint gets surfaced,
+            and the actual scope of what's required gets defined. Projects that skip this
+            step or compress it tend to discover what was missed in the middle of construction,
+            at a cost that's a multiple of what proper assessment would have required.
+            We don't move to design until assessment is complete and documented.
+          </div>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <div class="method-num">02</div>
+        <div>
+          <div class="method-title">Documentation is the foundation of pricing</div>
+          <div class="method-body">
+            A contractor can only price what they can see. Vague or incomplete documents
+            produce vague or incomplete bids — and the owner pays for the ambiguity in
+            the form of change orders, exclusion disputes, and rework during construction.
+            We treat the documentation phase as the highest-leverage investment in a project's
+            outcome. Getting documents right before solicitation — coordinated across all
+            disciplines, reviewed for consistency, formatted for contractor use — is what
+            produces comparable, complete bids that can actually be relied upon.
+          </div>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <div class="method-num">03</div>
+        <div>
+          <div class="method-title">Solicitation is a direct activity, not a passive one</div>
+          <div class="method-body">
+            Posting a project and waiting for responses is not solicitation — it's hoping.
+            Real solicitation means identifying specific contractors, making direct contact,
+            following up by phone, managing questions through the bid period, and actively
+            pursuing responses until adequate coverage in every trade is achieved.
+            The difference in response rate between a managed solicitation and an email blast
+            is significant and consistent. The difference in bid quality — how complete,
+            how accurately priced, how responsive to the scope — is even larger.
+          </div>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <div class="method-num">04</div>
+        <div>
+          <div class="method-title">Owners need options, not raw data</div>
+          <div class="method-body">
+            Presenting an owner with a stack of bids is not a deliverable. Bids in their
+            raw form are incomparable by design — different formats, different inclusions,
+            different assumptions, exclusions scattered throughout attachments.
+            The work of turning raw bids into options an owner can actually choose between
+            is where most of the pre-construction value is created, and it's the work
+            that's most commonly skipped. We don't skip it. Every package we present has
+            been reconciled, adjusted for scope gaps, and constructed to represent a
+            coherent and comparable choice.
+          </div>
+        </div>
+      </div>
+
+      <div class="method-item">
+        <div class="method-num">05</div>
+        <div>
+          <div class="method-title">Committed means committed — not just approved in principle</div>
+          <div class="method-body">
+            A lot of pre-construction processes end with signed packages and numbers on paper,
+            but without actual contractor commitments in place. The owner takes the package,
+            tries to execute the contracts themselves, and discovers that the contractors have
+            moved on to other projects, changed their pricing, or are no longer available
+            on the timeline that was planned. We treat contractor commitment — executed
+            contracts, confirmed mobilization dates, locked pricing — as part of our
+            deliverable, not the owner's responsibility after handoff.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUR PRINCIPLES -->
+<section style="background: var(--bg); padding: 88px 40px;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">Operating Principles</div>
+      <h2 class="section-title reveal reveal-delay-1">What we hold ourselves to.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        These aren't values statements — they're commitments that shape every decision
+        we make on behalf of a client.
+      </p>
+    </div>
+
+    <div class="principle-expanded reveal reveal-delay-2" style="margin-top: 48px; max-width: 900px;">
+
+      <div class="principle-exp-row">
+        <div class="principle-exp-header">
+          <div class="principle-exp-num">01</div>
+          <div class="principle-exp-title">One accountable firm for the entire process</div>
+        </div>
+        <div class="principle-exp-body">
+          When we take on a project, we own the pre-construction process completely.
+          That means we don't sub-delegate accountability. If a design professional
+          misses a coordination issue, that's on us to catch and correct before
+          it reaches bid documents. If a trade solicitation isn't producing adequate
+          responses, it's on us to expand the effort and get them. If the assessment
+          identified a permitting requirement that didn't make it into the documentation,
+          we find it. The owner works with one firm, has one number to call, and holds
+          one party accountable for the entire pre-construction outcome.
+        </div>
+      </div>
+
+      <div class="principle-exp-row">
+        <div class="principle-exp-header">
+          <div class="principle-exp-num">02</div>
+          <div class="principle-exp-title">No conflicts of interest — ever</div>
+        </div>
+        <div class="principle-exp-body">
+          We have no financial relationship with any contractor, architect, engineer,
+          or supplier we bring to a project. No referral fees, no preferred vendor
+          arrangements, no commissions on contractor selections, no side agreements
+          of any kind. The only money we receive is the flat fee we agree with our client
+          before the engagement begins. This is not just a policy statement — it's the
+          structural basis on which the entire Clearpath model rests. The value of
+          what we do depends entirely on the owner being able to trust that every
+          recommendation we make is made purely in their interest. The moment we have
+          a financial stake in a contractor outcome, that trust is gone.
+        </div>
+      </div>
+
+      <div class="principle-exp-row">
+        <div class="principle-exp-header">
+          <div class="principle-exp-num">03</div>
+          <div class="principle-exp-title">Relationships over platforms, every time</div>
+        </div>
+        <div class="principle-exp-body">
+          Bid platforms and online solicitation tools are useful for reaching a broad
+          audience quickly. What they produce is volume, not quality — and in construction,
+          the bids that come back from contractors who don't know the project, the market,
+          or the standards required tend to reflect that. The contractors in our network
+          know how we work. They know what level of documentation they'll receive.
+          They know that questions get answered and that communication is organized.
+          That familiarity produces better bid quality, more complete responses, and
+          contractors who are genuinely committed when their bid is accepted —
+          not contractors fishing for scope clarifications after award.
+        </div>
+      </div>
+
+      <div class="principle-exp-row">
+        <div class="principle-exp-header">
+          <div class="principle-exp-num">04</div>
+          <div class="principle-exp-title">The deliverable is a ready-to-build project, not a set of options</div>
+        </div>
+        <div class="principle-exp-body">
+          Presenting package options to an owner is the second-to-last step, not the last one.
+          The last step is taking the owner's selection and converting it into an executable
+          project — executed contracts, finalized permits, confirmed mobilization schedules,
+          and a complete handoff package. The distinction matters because many pre-construction
+          processes stop at options. The owner receives a recommendation, says yes,
+          and then has to go execute the contracts themselves — which involves another
+          round of negotiations, delays, and the risk that committed pricing and
+          availability have changed. We don't stop at options.
+        </div>
+      </div>
+
+      <div class="principle-exp-row">
+        <div class="principle-exp-header">
+          <div class="principle-exp-num">05</div>
+          <div class="principle-exp-title">Honest assessments, even when uncomfortable</div>
+        </div>
+        <div class="principle-exp-body">
+          Part of working exclusively for the owner is telling them things they sometimes
+          don't want to hear. If the budget doesn't support the scope, we say that in
+          Phase 1 — before design work begins and before that fact becomes expensive.
+          If a bid came in low because something is missing, we document what's missing
+          and what the real cost is — we don't let an artificially low number stand
+          because it looks good. If a contractor's references don't hold up, we tell the owner
+          and explain what we found. The pre-construction process is only worth managing
+          professionally if the owner receives honest information throughout. That's
+          the only standard we hold ourselves to.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ARE NOT -->
+<section style="background: var(--bg-2); padding: 88px 40px;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow reveal">What We Are Not</div>
+      <h2 class="section-title reveal reveal-delay-1">Important distinctions.</h2>
+      <p class="section-body reveal reveal-delay-2">
+        Clearpath occupies a specific role in the construction process.
+        Understanding what we're not is as important as understanding what we are.
+      </p>
+    </div>
+
+    <div class="not-this-grid reveal reveal-delay-2">
+
+      <div class="not-this-card">
+        <div class="not-this-label">Not This</div>
+        <div class="not-this-title">A General Contractor</div>
+        <div class="not-this-body">
+          A GC builds the project. Their interest in the pre-construction process
+          is in winning the contract and protecting their margin. They manage their
+          own subs, on their own terms, with their own relationships — and those
+          relationships have financial implications that don't always align with
+          getting the owner the best value.
+        </div>
+        <div class="this-instead">
+          Clearpath manages pre-construction on the owner's behalf. We have no
+          construction interest in the project and no financial stake in contractor selections.
+        </div>
+      </div>
+
+      <div class="not-this-card">
+        <div class="not-this-label">Not This</div>
+        <div class="not-this-title">A Bid Platform or Directory</div>
+        <div class="not-this-body">
+          Bid platforms aggregate contractor listings and allow project postings.
+          They produce volume — sometimes a lot of it — but no coordination,
+          no quality control, no follow-up, and no organization of what comes back.
+          The owner still has to manage the process themselves once
+          responses arrive.
+        </div>
+        <div class="this-instead">
+          Clearpath manages every step of solicitation directly — contact, follow-up,
+          Q&amp;A, organization — and delivers structured, comparable results.
+        </div>
+      </div>
+
+      <div class="not-this-card">
+        <div class="not-this-label">Not This</div>
+        <div class="not-this-title">A Broker or Referral Service</div>
+        <div class="not-this-body">
+          Some pre-construction consultants earn commissions or referral fees
+          from the contractors they recommend. That arrangement — however disclosed —
+          creates an incentive that runs counter to the owner's interest.
+          A firm that earns more when a more expensive contractor is selected
+          is not working for the owner.
+        </div>
+        <div class="this-instead">
+          Clearpath earns a flat fee agreed with the owner before engagement begins.
+          We earn nothing from any contractor, under any arrangement.
+        </div>
+      </div>
+
+      <div class="not-this-card">
+        <div class="not-this-label">Not This</div>
+        <div class="not-this-title">An Advisory Service</div>
+        <div class="not-this-body">
+          Some consultants advise on pre-construction without owning the outcome.
+          They review documents, attend meetings, and offer recommendations —
+          but the actual work of coordinating design, soliciting contractors,
+          and organizing bids stays with the owner or gets distributed across
+          parties who aren't accountable to each other.
+        </div>
+        <div class="this-instead">
+          Clearpath owns and executes the full process. We don't advise —
+          we deliver a complete, shovel-ready package.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section style="background: var(--bg); padding: 88px 40px;">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Who We Work With</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 16px;">Anyone with a project<br>and a need to build it right.</h2>
+    <p class="section-body reveal reveal-delay-2" style="margin-bottom: 56px;">
+      Our clients share one thing in common: they want the pre-construction phase
+      managed professionally, and they don't have an internal team to do it.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal reveal-delay-2">
+
+      <div style="background:var(--bg-3);border:1px solid var(--border);padding:36px 28px;border-top:3px solid var(--orange);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;">Owners &amp; Developers</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:20px;">
+          You have a site, a project, and the capital to build it. What you don't have is
+          an in-house pre-construction team to manage architects, engineers, GC solicitation,
+          sub coordination, bid leveling, and contract execution simultaneously — and you
+          shouldn't have to. That's the problem Clearpath solves.
+        </p>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;">
+          We work with developers on everything from ground-up commercial to multi-family
+          and mixed-use development, managing pre-construction from initial assessment
+          through contractor commitment on every project.
+        </p>
+      </div>
+
+      <div style="background:var(--bg-3);border:1px solid var(--border);padding:36px 28px;border-top:3px solid var(--border-hi);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;">Real Estate Investors</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:20px;">
+          Before you commit capital to an acquisition or a development, you need a realistic
+          picture of what the project will cost to build and a credible path from that number
+          to actual contractor commitments. We produce both — an independent estimate before
+          bids go out, and a contractor-committed package after.
+        </p>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;">
+          Value-add, ground-up, or rehabilitation — the pre-construction process we run
+          gives investors the data they need to make sound capital allocation decisions,
+          and the documentation they need to move quickly when they decide to proceed.
+        </p>
+      </div>
+
+      <div style="background:var(--bg-3);border:1px solid var(--border);padding:36px 28px;border-top:3px solid var(--border-hi);">
+        <div style="font-family:var(--font-d);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;">Organizations &amp; Institutions</div>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:20px;">
+          Municipalities, nonprofits, churches, school districts, and other organizations
+          have the same pre-construction needs as commercial developers — and often fewer
+          internal resources to address them. We bring the same structured, accountable
+          process regardless of the client type.
+        </p>
+        <p style="font-size:14px;font-weight:300;color:var(--t2);line-height:1.75;">
+          Institutional projects frequently have procurement requirements, prevailing wage
+          considerations, or public bidding obligations that shape the process. We're
+          familiar with those requirements and build them into our approach from Phase 1.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-eyebrow">Get Started</div>
+      <div class="cta-title">Tell us what you want built.<br>We'll handle everything from there.</div>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+      <a href="./contact.html" class="btn-white">
+        Start a Project
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="./services.html" class="btn-outline">See the Process</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="./" class="footer-logo">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+            <rect x="1.5" y="1.5" width="31" height="31" stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="17" y1="1.5"  x2="17" y2="10"   stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="17" y1="24"   x2="17" y2="32.5"  stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="1.5" y1="17"  x2="10"  y2="17"  stroke="#e07c38" stroke-width="1.5"/>
+            <line x1="24"  y1="17"  x2="32.5" y2="17" stroke="#e07c38" stroke-width="1.5"/>
+            <circle cx="17" cy="17" r="5" stroke="#e07c38" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <div class="footer-logo-name">Clearpath</div>
+            <div class="footer-logo-sub">Site Consulting</div>
+          </div>
+        </a>
+        <p class="footer-tagline">Pre-construction project delivery for owners, developers, and investors across North Texas.</p>
+        <div class="footer-assoc">
+          <span class="footer-assoc-badge">TEXO Member</span>
+          <span class="footer-assoc-badge">AGC of Texas</span>
+          <span class="footer-assoc-badge">Fort Worth, TX</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Process</div>
+        <a href="./services.html#assessment">Project Assessment</a>
+        <a href="./services.html#design">Design &amp; Documentation</a>
+        <a href="./services.html#solicitation">Trade Solicitation</a>
+        <a href="./services.html#packaging">Bid Packaging</a>
+        <a href="./services.html#handoff">Approval &amp; Handoff</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./contact.html">Start a Project</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <p>(817) 000-0000</p>
+        <p>estimating@clearpathsite.com</p>
+        <p>Fort Worth, TX</p>
+        <p>Mon–Fri · 7 AM–5 PM CT</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 Clearpath Site Consulting. All rights reserved.</div>
+      <div>Clearpath Site Consulting is a registered trade name in the State of Texas.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
