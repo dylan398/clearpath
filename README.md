@@ -32,7 +32,7 @@ Two placeholders to replace across all HTML files. Do a find-and-replace in your
 | Find | Replace With |
 |---|---|
 | `(817) 000-0000` | Your Google Voice number |
-| `estimating@clearpathsite.com` | Your Google Workspace email |
+| `estimating@clearpathsiteconsulting.com` | Your Google Workspace email |
 
 Both appear in the top bar, footer, and contact page of every HTML file (5 files total).
 
@@ -159,7 +159,7 @@ If `clearpathsite.com` is registered or managed through Wix:
 
 ### Content
 - [ ] Replace `(817) 000-0000` with real number in all 5 HTML files
-- [ ] Replace `estimating@clearpathsite.com` with real email in all 5 HTML files
+- [ ] Replace `estimating@clearpathsiteconsulting.com` with real email in all 5 HTML files
 - [ ] Review all placeholder testimonial names/roles and update if desired
 - [ ] Confirm TEXO and AGC of Texas references are accurate to actual membership status
 - [ ] Update copyright year in footer if needed (`© 2025`)
